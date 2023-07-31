@@ -21,17 +21,25 @@ def request(url_requested)
 end
 data = request('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&api_key=EHt7LTYn0ZRcEeicMRr609iWcZJzgAW4SCsJU0Gd').values[0]
 
-html = ""
+def build_web_page(photos)
+    html =""
+    photos _html = photoes.each do |photo|
 
-data.each do |sol|
-    html += "<img src=\"#{sol}\">\n"
+        html += " <img src =\"#{photo}\"> "
+    end
+   
+    html = "<!DOCTYPE html>
+    <html>
+    <head>
+    <title> Imagenes desde Marte </title>
+    </head>
+    <body>
+    #{photos_html}
+    </body>
+    </html"
+        
+  
+    File.write('index.html',html)
+
 end
-
-File.write('nasa.html',html)
-
-
-print data
-
-def build_web_page
-    
-end
+    print data
